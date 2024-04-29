@@ -32,7 +32,9 @@ public class ThirdPlayer : MonoBehaviour
 
         //anim = GetComponent<Animator>();
 
-      
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
     }
 
     void Update()
