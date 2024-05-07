@@ -7,6 +7,13 @@ public class NearCreature : MonoBehaviour
 {
     Animator anim;
     bool close = false;
+    bool dead = false;
+
+    public GameObject player;
+    Vector3 playerPos;
+
+    public float speed;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -17,7 +24,7 @@ public class NearCreature : MonoBehaviour
         if ((close == true) && (Input.GetMouseButton(1) == true))
         {
             anim.SetBool("fall", true);
-
+            dead = true;
 
         }
 
@@ -25,6 +32,17 @@ public class NearCreature : MonoBehaviour
         {
             anim.SetBool("fall", false);
         }
+
+        if (dead == false)
+        {
+            anim.SetBool("follow", true);
+            playerPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
+            transform.position = Vector3.MoveTowards(transform.position, playerPos, speed * Time.deltaTime);
+            transform.LookAt(playerPos, Vector3.up);
+
+        }
+       
+
     }
 
     private void OnTriggerStay(Collider other)
