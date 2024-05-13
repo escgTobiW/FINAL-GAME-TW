@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 
@@ -20,9 +21,11 @@ public class ThirdPlayer : MonoBehaviour
     [HideInInspector]
     public bool canMove = true;
 
- 
+    Animator anim;
+    bool dead = false;
+    float wait = 1;
 
-    //Animator anim;
+   
 
 
     void Start()
@@ -30,7 +33,7 @@ public class ThirdPlayer : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         rotation.y = transform.eulerAngles.y;
 
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -39,11 +42,18 @@ public class ThirdPlayer : MonoBehaviour
 
     void Update()
     {
+        /*
+        if( Input.GetKeyDown("i"))
+        {
+            print("play death anim");
+            anim.Play("death player");
 
+        }
+        */
 
         if (characterController.isGrounded)
         {
-            // We are grounded, so recalculate move direction based on axes
+            
             Vector3 forward = transform.TransformDirection(Vector3.forward);
             Vector3 right = transform.TransformDirection(Vector3.right);
             float curSpeedX = canMove ? speed * Input.GetAxis("Vertical") : 0;
@@ -51,7 +61,7 @@ public class ThirdPlayer : MonoBehaviour
             moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
 
-            
+
 
 
             if (Input.GetButton("Jump") && canMove)
@@ -67,7 +77,7 @@ public class ThirdPlayer : MonoBehaviour
 
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
-            
+
 
         // Player and Camera rotation
         if (canMove)
@@ -79,9 +89,36 @@ public class ThirdPlayer : MonoBehaviour
             transform.eulerAngles = new Vector2(0, rotation.y);
         }
 
-        //anim.SetBool("run", true);
+       
+
+        if (dead == true)
+        {
+            wait += Time.deltaTime;
+
+        }
+
+
+        if (wait > 6)
+        {
+            SceneManager.LoadScene("Gameover");
+        }
 
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Creature"))
+        {
+
+            canMove = false;
+            //anim.SetBool("dead", true);
+
+           
+
+            dead = true;
+
+        }
+
+    }
 
 }

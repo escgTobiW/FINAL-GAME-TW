@@ -52,7 +52,8 @@ public class NearCreature : MonoBehaviour
 
             close = true;
             anim.SetBool("shock", true);
-          
+            anim.SetBool("follow", false);
+
         }
 
 
@@ -64,7 +65,7 @@ public class NearCreature : MonoBehaviour
         {
             close = false;
             anim.SetBool("shock", false);
-
+            anim.SetBool("follow", true);
         }
 
 

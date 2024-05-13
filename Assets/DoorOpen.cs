@@ -6,7 +6,7 @@ public class DoorOpen : MonoBehaviour
 {
 
     Animator anim;
-
+    bool openable = false;
 
     void Start()
     {
@@ -16,7 +16,25 @@ public class DoorOpen : MonoBehaviour
 
     void Update()
     {
-        
+        if ((openable == true) && (Input.GetMouseButton(1) == true))
+        {
+
+            if (anim.GetBool("open") == false)
+            {
+                anim.SetBool("open", true);
+
+            }
+            else
+            {
+
+                anim.SetBool("open", false);
+
+            }
+              
+
+
+        }
+
     }
 
 
@@ -26,7 +44,7 @@ public class DoorOpen : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            anim.SetBool("open", true);
+            openable = true;
 
         }
 
@@ -37,7 +55,8 @@ public class DoorOpen : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            anim.SetBool("open", false);
+            openable = false;
+           
 
         }
 
