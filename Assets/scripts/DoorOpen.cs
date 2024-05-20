@@ -16,7 +16,7 @@ public class DoorOpen : MonoBehaviour
 
     void Update()
     {
-        if ((openable == true) && (Input.GetMouseButton(1) == true))
+        if ((openable == true) && (Input.GetMouseButtonDown(1) == true))
         {
 
             if (anim.GetBool("open") == false)

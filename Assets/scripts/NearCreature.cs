@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NearCreature : MonoBehaviour
 {
     Animator anim;
     bool close = false;
     bool dead = false;
+    float wait = 1;
+
 
     public GameObject player;
     Vector3 playerPos;
 
     public float speed;
+
+    public GameObject PlayerAxe;
+    bool armed = false;
 
     void Start()
     {
@@ -21,7 +27,7 @@ public class NearCreature : MonoBehaviour
 
     void Update()
     {
-        if ((close == true) && (Input.GetMouseButton(1) == true))
+        if ((armed == true) && (close == true) && (Input.GetMouseButtonDown(0) == true))
         {
             anim.SetBool("fall", true);
             dead = true;
@@ -41,7 +47,28 @@ public class NearCreature : MonoBehaviour
             transform.LookAt(playerPos, Vector3.up);
 
         }
-       
+
+        if (PlayerAxe.activeSelf)
+        {
+            armed = true;
+        }
+        else
+        {
+            armed = false;
+        }
+
+        if (dead == true)
+        {
+            wait += Time.deltaTime;
+
+        }
+
+
+        if (wait > 6)
+        {
+            SceneManager.LoadScene("WinScreen");
+        }
+
 
     }
 

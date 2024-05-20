@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-public class MixerController : MonoBehaviour
+public class MixerController : MonoBehaviour 
 {
     [SerializeField] private AudioMixer Amix;
 

@@ -5763,14 +5763,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57db039ac43717442ae2372cebeb0965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundList:
-  - name: press
-    clip: {fileID: 8300000, guid: 2edeaeb65aa1d834bb9443286bcdfab5, type: 3}
-    volume: 5.84
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  AmixSFX: {fileID: 1334682299776346108, guid: 13b09492a53acf34ca14e77ab53be0ad, type: 2}
 --- !u!1 &2086188124
 GameObject:
   m_ObjectHideFlags: 0
