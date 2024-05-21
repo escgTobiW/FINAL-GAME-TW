@@ -5766,7 +5766,7 @@ MonoBehaviour:
   soundList:
   - name: press
     clip: {fileID: 8300000, guid: 2edeaeb65aa1d834bb9443286bcdfab5, type: 3}
-    volume: 5.59
+    volume: 5
     pitch: 1
     loop: 0
     source: {fileID: 0}
