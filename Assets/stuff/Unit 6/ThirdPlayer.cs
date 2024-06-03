@@ -103,13 +103,19 @@ public class ThirdPlayer : MonoBehaviour
             SceneManager.LoadScene("Gameover");
         }
 
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            SceneManager.LoadScene("Main menu");
+
+            Object.FindFirstObjectByType<AudioManagerScript>().Play("press");
+        }
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Creature"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
-
+            //print("collided enemy");
             canMove = false;
             //anim.SetBool("dead", true);
 

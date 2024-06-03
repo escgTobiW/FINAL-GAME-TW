@@ -23,9 +23,9 @@ public class playeranim : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Creature"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            print("should be dead");
+            //print("should be dead");
             anim.SetBool("dead", true);
 
         }
