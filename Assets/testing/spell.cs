@@ -29,7 +29,7 @@ public class spell : MonoBehaviour
 
 
 
-        if (Input.GetMouseButtonDown(1) == true)
+        if (Input.GetMouseButtonDown(2) == true)
         {
             On = !On;
         }

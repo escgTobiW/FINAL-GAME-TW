@@ -332,8 +332,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.8637817, y: 20.477993, z: 1}
-  m_Center: {x: -0.0052115284, y: 9.738997, z: 1.32255e-10}
+  m_Size: {x: 8.260755, y: 20.815994, z: 6.1245294}
+  m_Center: {x: -1.1092879, y: 9.907998, z: -0.04830586}
 --- !u!136 &3683202218312137581
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  speed: 12
+  speed: 10
   PlayerAxe: {fileID: 0}
 --- !u!54 &2331938695486638125
 Rigidbody:
@@ -420,4 +420,4 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1

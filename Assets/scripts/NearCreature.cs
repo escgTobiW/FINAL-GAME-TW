@@ -57,6 +57,7 @@ public class NearCreature : MonoBehaviour
             armed = false;
         }
 
+        /*
         if (dead == true)
         {
             wait += Time.deltaTime;
@@ -68,7 +69,7 @@ public class NearCreature : MonoBehaviour
         {
             SceneManager.LoadScene("WinScreen");
         }
-
+        */
 
     }
 

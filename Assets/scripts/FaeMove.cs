@@ -18,14 +18,19 @@ public class FaeMove : MonoBehaviour
 
     public GameObject PlayerAxe;
     bool armed = false;
+    Rigidbody rb;
 
     void Start()
     {
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
+
+        Vector3 dir = playerPos - transform.position; 
+
         if ((armed == true) && (close == true) && (Input.GetMouseButtonDown(0) == true))
         {
             anim.SetBool("fall", true);
@@ -42,7 +47,15 @@ public class FaeMove : MonoBehaviour
         {
             anim.SetBool("follow", true);
             playerPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
-            transform.position = Vector3.MoveTowards(transform.position, playerPos, speed * Time.deltaTime);
+            
+            
+            //transform.position = Vector3.MoveTowards(transform.position, playerPos, speed * Time.deltaTime);
+
+            //rb.velocity = Vector3.MoveTowards(transform.position, playerPos, speed * Time.deltaTime);
+            rb.MovePosition( transform.position + dir.normalized * 0.1f );
+
+
+
             transform.LookAt(playerPos, Vector3.up);
 
         }
