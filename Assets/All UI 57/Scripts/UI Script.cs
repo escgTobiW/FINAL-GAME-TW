@@ -32,7 +32,7 @@ public class UIScript : MonoBehaviour
     public void Play()
     {
         Object.FindFirstObjectByType<AudioManagerScript>().Play("press");
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("InfoScreen");
     }
 
     public void OptionMenu ()

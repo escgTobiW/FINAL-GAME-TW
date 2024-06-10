@@ -27,12 +27,14 @@ public class NearCreature : MonoBehaviour
 
     void Update()
     {
+        /*
         if ((armed == true) && (close == true) && (Input.GetMouseButtonDown(0) == true))
         {
             anim.SetBool("fall", true);
             dead = true;
 
         }
+        */
 
         if (close == false)
         {

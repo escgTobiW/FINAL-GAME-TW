@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WinScreen.unity
     guid: 3f70b06b084a30b4fbb46861b4111f05
+  - enabled: 1
+    path: Assets/Scenes/InfoScreen.unity
+    guid: 31a3653fe953a3a49a678ebc5ee99480
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
